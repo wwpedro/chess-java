@@ -33,4 +33,10 @@ public class Board {
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getcolumn()];
 	} 
+	
+	public void placePiece(Piece piece , Position position) {
+		pieces[position.getRow()][position.getcolumn()] = piece;
+		//consegue acessar livremente protect pq ta no memso pacote
+		piece.position = position;
+	}
 }
