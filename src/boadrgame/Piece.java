@@ -1,6 +1,6 @@
 package boadrgame;
 
-public class Piece {
+public abstract class Piece {
 	
 	/* 1	ela nao é da camada do xadrez 
 	 * 	por isso não queremos que seja visivel 
@@ -30,4 +30,21 @@ public class Piece {
 	// 4 board n precisa de set pq não pode ser alterado
 	
 	
+	public abstract boolean[][] possibleMoves();
+	
+	public  boolean possibleMove(Position position) {
+		return possibleMoves()[position.getRow()][position.getcolumn()];
+	}
+	
+	public boolean isThereAnyPossibleMove() {
+		boolean[][] mat = possibleMoves();
+		for (int i=0; i<mat.length; i++) {
+			for (int j=0; j<mat.length; j++) {
+				if (mat[i][j]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
