@@ -2,6 +2,7 @@ package chess;
 
 import boadrgame.Board;
 import boadrgame.Piece;
+import boadrgame.Position;
 
 public abstract class ChessPiece extends Piece {
 	
@@ -15,6 +16,12 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
-	//sem set pra n modificar a cor
+	
+	protected boolean isThereOponetPiece(Position position) {
+		ChessPiece p = (ChessPiece)getBoard().piece(position);
+		return p != null && p.getColor() != color;
+		
+	}
+	
 	
 }
