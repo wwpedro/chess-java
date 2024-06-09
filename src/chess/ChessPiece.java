@@ -23,5 +23,8 @@ public abstract class ChessPiece extends Piece {
 		
 	}
 	
-	
+	//log check
+	public ChessPosition getChessPosition() {
+		return ChessPosition.fromPosition(position);
+	}
 }
