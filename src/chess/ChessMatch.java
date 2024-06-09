@@ -122,7 +122,9 @@ public class ChessMatch {
 	
 	//realizando movidamneto
 	private Piece makeMove(Position source, Position target) {
-		Piece p = board.revovePiece(source);
+		ChessPiece p = (ChessPiece)board.revovePiece(source);
+		p.increaseMoveCount();
+		
 		Piece capturedPiece = board.revovePiece(target);
 		board.placePiece(p, target);
 		
@@ -152,7 +154,8 @@ public class ChessMatch {
 	
 	//check se a pessoa tenta se mover e entra em check tem que desfazer movimento
 	private void undoMove(Position source, Position target, Piece capturedPiece) {
-		Piece p = board.revovePiece(target);
+		ChessPiece p = (ChessPiece)board.revovePiece(target);
+		p.decreaseMoveCount();
 		board.placePiece(p, source);
 		
 		
