@@ -48,7 +48,7 @@ public class Pawn extends ChessPiece {
 			}
 			p.setValues(position.getRow()+2, position.getcolumn());
 			//para testar a primeira casa , assim verifica se 2 casas pra frente está livre
-			Position p2 = new Position(position.getRow()-1, position.getcolumn());
+			Position p2 = new Position(position.getRow()+1, position.getcolumn());
 			if(getBoard().positionExists(p)&& !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2)&& !getBoard().thereIsAPiece(p2) && getMoveCount() == 0) {
 				//primeira jogada move 2 casas
 				mat[p.getRow()][p.getcolumn()] = true;
